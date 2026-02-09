@@ -306,26 +306,28 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Robot-assisted minimally invasive surgery has revolutionized surgical practices, and its automation has
-              been a long-time standing goal for research.
-              However, existing surgical research platforms like the dVRK and Raven are limited worldwide and suffer
-              from poor precision due to inaccurate joint measurements.
-              To address these challenges and enhance the accessibility of surgical robotics,
-              we propose a modular surgical research platform (MSR) that integrates a general robot arm with a
-              custom-designed 5-DoF modular adaptor.
-              The adaptor can drive both instruments and the laparoscope, and features a quick-release structure for
-              convenient assembly.
-              Besides, it can be flexibly combined for multi-arm operations. To control the MSR in real-time under
-              critical safety constraints, we formulate our control tasks as a unified quadratic programming (QP)
-              problem which can be solved efficiently.
-              This approach ensures safe and precise operations under joint limits, joint failures and dynamic RCM
-              scenarios.
-              Our MSR can achieve the sub-millimeter positional precision of 0.75mm. We further develop advanced tasks
-              to facilitate diverse human-machine interactions, including intuitive teleoperation and its potential for
-              performing hand-hand or hand-eye collaborative and fully automated surgical tasks.
-              Extensive experiments validate the MSR's versatility for safe operations in confined space and for the
-              first time show its robustness under certain joint failures, which surpass current surgical research
-              platforms.
+              Robot-assisted minimally invasive surgery has significantly improved clinical outcomes, yet progress
+              toward
+              scalable surgical autonomy remains constrained by high-cost research platforms. Existing systems such as
+              dVRK and Raven, have facilitated pioneering research in surgical robotics. However, they impose
+              substantial
+              barriers due to expensive hardware, limited availability, mechanical imprecision, and the lack of
+              high-fidelity simulation environments for large-scale learning and benchmarking.This paper presents the
+              modular surgical research platform (MSR), an open-source, embodied-intelligence-oriented system to address
+              these limitations. The MSR is built as a low-cost research platform, integrating an off-the-shelf robotic
+              arm
+              with a custom-designed 5-DoF modular adapter, achieving sub-millimeter absolute positioning accuracy (0.75
+              mm). To enable scalable learning and benchmarking, we develop a GPU-accelerated simulator capable of
+              modeling complex interactions with rigid, deformable, and fluid surgical entities. To achieve safety-aware
+              operation in real-world control, we introduce a unified Safety-Constrained Controller (SCC) formulated
+              through hierarchical task-priority inverse kinematics (IK). The SCC enforces remote center of motion (RCM)
+              constraints, performs joint limit avoidance, and maintains stable operation under unexpected actuator
+              faults.
+              Using this controller, autonomous policies learned in simulation can be directly deployed on the physical
+              MSR
+              system, enabling high-fidelity sim-to-real transfer for both single-arm and bimanual tasks. Experimental
+              results demonstrate the robust performance of MSR across teleoperated, cooperative, and fully autonomous
+              surgical subtasks.
             </p>
           </div>
         </div>
@@ -333,6 +335,30 @@
     </div>
   </section>
   <!-- End paper abstract -->
+
+  <!-- System Overview -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">System Overview</h2>
+          <div class="content has-text-centered">
+            <img src="./static/images/msr_overall.png" alt="MSR System Overview"
+              style="width: 100%; max-width: 1200px;">
+          </div>
+          <div class="content has-text-justified">
+            <!-- <p>
+              Overview of the Modular Surgical Research (MSR) platform, highlighting key components: modular 5-DoF
+              adapter,
+              GPU-accelerated simulation environment, safety-constrained controller, and teleoperation/automation
+              capabilities.
+            </p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End system overview -->
 
   <!-- Paper highlights -->
   <section class="section">
@@ -488,7 +514,7 @@
                   performing large-scale peg-transfer task.
                 </p>
               </div>
-              <video id="cooperate-ecm-video" controls muted preload playsinline width="100%">
+              <video id="cooperate-ecm-video" autoplay controls muted preload playsinline width="100%">
                 <source src="./static/videos/cooperate-ecm_sx3.mp4" type="video/mp4">
               </video>
             </div>
@@ -502,7 +528,7 @@
                   (right) in performing bi-manual needle transfer task.
                 </p>
               </div>
-              <video id="cooperate-psms-video" controls muted preload playsinline width="100%">
+              <video id="cooperate-psms-video" autoplay controls muted preload playsinline width="100%">
                 <source src="./static/videos/cooperate-psms.mp4" type="video/mp4">
               </video>
             </div>
@@ -752,7 +778,7 @@
           </div>
 
           <!-- Subsection: Safety-Oriented Control -->
-          <h3 class="title is-4">Safety-Oriented Control</h3>
+          <h3 class="title is-4">Safety-oriented control</h3>
           <div class="content has-text-justified">
             <p>
               Advanced safety features for robust surgical robot control under various challenging scenarios.
